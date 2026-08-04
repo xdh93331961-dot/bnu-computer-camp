@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HelloGitHub 项目展示</title>
+  <meta name="description" content="按编程语言分类展示 HelloGitHub 月刊中的开源项目，支持全部历史期号切换。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>HelloGitHub 项目展示</h1>
+      <p class="subtitle">
+        分享 GitHub 上有趣、入门级的开源项目 · 数据来自
+        <a href="https://github.com/521xueweihan/HelloGitHub" target="_blank" rel="noopener">HelloGitHub</a>
+      </p>
+    </div>
+  </header>
+
+  <nav class="toolbar" id="toolbar">
+    <div class="container toolbar-inner">
+      <div class="issue-controls">
+        <button id="prevBtn" class="btn" aria-label="上一期">‹ 上一期</button>
+        <select id="issueSelect" aria-label="选择期号"></select>
+        <button id="nextBtn" class="btn" aria-label="下一期">下一期 ›</button>
+      </div>
+      <div class="cat-nav" id="catNav" aria-label="分类导航"></div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="issue-head" id="issueHead"></section>
+    <div id="content">
+      <p class="loading">正在加载数据…</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        内容来自 <a href="https://github.com/521xueweihan/HelloGitHub" target="_blank" rel="noopener">HelloGitHub</a>，
+        采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a> 许可，
+        本站仅作非商业展示，原文未做修改。
+      </p>
+      <p>数据更新于 <span id="updatedAt"></span></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
