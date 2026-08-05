@@ -113,3 +113,36 @@ v1 以本地预览为主。如需上线（如 GitHub Pages）：
 内容来自 [HelloGitHub](https://github.com/521xueweihan/HelloGitHub)，采用
 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
 （署名-非商业使用-禁止演绎）许可。本站仅供非商业展示，保留署名，原文未做修改。
+
+## 视觉升级（v2.0 · HY/OBS）
+
+基于 frontend-design 思路将页面升级为「开源信号观测站」风格：
+
+- **设计系统**：深空蓝黑底 + phosphor 青色主强调色 + 紫色辅助 + 琥珀色暖信号点；
+  字体组合 Space Grotesk（展示）/ Noto Sans SC（正文）/ JetBrains Mono（数据）。
+- **hy 标识**：自定义 "HY" 连字标记（SVG），出现在 favicon、Hero、工具栏与页脚，
+  并在背景中以大号水印形式融入页面。
+- **动效**：Hero 分段入场 + 一次性扫描线，卡片滚动渐显，尊重 prefers-reduced-motion。
+- **AI 生成图位**：assets/img/hero-bg.png（Hero 图面板）与 assets/img/orb-core.png（加载态）
+  预留为 gpt-image-2 生成图位；图片缺失时自动回退为 CSS 全息图，不影响观感。
+
+### 生成 AI 配图（gpt-image-2）
+
+页面已为两张 AI 配图预留好位置，放入后即自动显示（无需改代码）：
+
+```powershell
+# 1. 设置有效 OPENAI_API_KEY（当前 ~/.codex/auth.json 中的 key 已失效，需更新）
+# 2. 安装依赖（一次即可）
+python -m pip install openai pillow
+# 3. 生成 Hero 背景（宽幅）
+python "$env:USERPROFILE\.codex\skills\.system\imagegen\scripts\image_gen.py" generate `
+  --prompt "抽象未来科技观测站：深空蓝图网格、流动青色电路与数据流、右侧紫色辉光、左侧留出暗色负空间，无文字无水印" `
+  --size 2048x1152 --quality high --out "assets/img/hero-bg.png"
+# 4. 生成加载态核心（方形）
+python "$env:USERPROFILE\.codex\skills\.system\imagegen\scripts\image_gen.py" generate `
+  --prompt "深空背景上发光的青色八面体晶核，紫色光环环绕，少量琥珀色火花，居中构图，无水印无文字" `
+  --size 1024x1024 --quality high --out "assets/img/orb-core.png"
+```
+
+> 说明：~/.codex/auth.json 中现有 key 返回 401（Incorrect API key），需替换为
+> 有效的 OpenAI API key 后重新执行上述命令。

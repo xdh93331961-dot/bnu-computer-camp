@@ -3,47 +3,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HelloGitHub 项目展示</title>
-  <meta name="description" content="按编程语言分类展示 HelloGitHub 月刊中的开源项目，支持全部历史期号切换。">
+  <title>HelloGitHub · 开源观测站</title>
+  <meta name="description" content="按编程语言分类观测 HelloGitHub 月刊中的开源项目，支持全部历史期号切换。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2305070E%22%2F%3E%3Cpath%20d%3D%22M16%2046V18M16%2032h15M31%2018v28%22%20stroke%3D%22%233AE2FF%22%20stroke-width%3D%225.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill%3D%22none%22%2F%3E%3Cpath%20d%3D%22M44%2018v12M44%2030l-8%2016M44%2030l8%2016%22%20stroke%3D%22%238A7CFF%22%20stroke-width%3D%225.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill%3D%22none%22%2F%3E%3Ccircle%20cx%3D%2244%22%20cy%3D%2230%22%20r%3D%223.4%22%20fill%3D%22%23FFC857%22%2F%3E%3C%2Fsvg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1>HelloGitHub 项目展示</h1>
-      <p class="subtitle">
-        分享 GitHub 上有趣、入门级的开源项目 · 数据来自
-        <a href="https://github.com/521xueweihan/HelloGitHub" target="_blank" rel="noopener">HelloGitHub</a>
-      </p>
+  <a class="skip-link" href="#content">跳到内容</a>
+
+  <header class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <div class="hero-brand reveal" data-r="0">
+          <span class="hy-badge" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" role="img" aria-label="hy">
+              <path d="M16 46V18M16 32h15M31 18v28" stroke="#3AE2FF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M44 18v12M44 30l-8 16M44 30l8 16" stroke="#8A7CFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="44" cy="30" r="3.4" fill="#FFC857"/>
+            </svg>
+          </span>
+          <span class="brand-word">HY<span class="brand-slash">/</span>OBS</span>
+          <span class="brand-tag">OPEN SOURCE SIGNAL · EST. 2016</span>
+        </div>
+
+        <h1 class="hero-title reveal" data-r="1">HelloGitHub<span class="hero-dot">.</span><br>
+          <span class="hero-title-sub">开源观测站</span>
+        </h1>
+
+        <p class="hero-sub reveal" data-r="2">
+          每月从 GitHub 打捞有趣、入门级的开源项目，像观测信号一样按语言分类，
+          随时回放全部历史期号，发现下一颗值得收藏的星。
+        </p>
+
+        <dl class="hero-stats reveal" data-r="3">
+          <div class="stat">
+            <dt>已观测期数</dt>
+            <dd class="mono" id="statIssues">—</dd>
+          </div>
+          <div class="stat">
+            <dt>收录项目</dt>
+            <dd class="mono" id="statProjects">—</dd>
+          </div>
+          <div class="stat">
+            <dt>项目分类</dt>
+            <dd class="mono" id="statCats">—</dd>
+          </div>
+          <div class="stat">
+            <dt>数据更新</dt>
+            <dd class="mono" id="statUpdated">—</dd>
+          </div>
+        </dl>
+      </div>
+
+      <figure class="hero-art reveal" data-r="4">
+        <span class="corner tl" aria-hidden="true"></span>
+        <span class="corner tr" aria-hidden="true"></span>
+        <span class="corner bl" aria-hidden="true"></span>
+        <span class="corner br" aria-hidden="true"></span>
+        <div class="hero-art-fallback" aria-hidden="true"></div>
+        <span class="scanline" aria-hidden="true"></span>
+        <img class="hero-art-img" src="assets/img/hero-bg.png" alt=""
+             onload="this.classList.add('is-loaded')"
+             onerror="this.classList.add('is-missing')">
+        <figcaption class="hero-art-cap">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span class="mono">信号源 · github.com/521xueweihan/HelloGitHub</span>
+        </figcaption>
+      </figure>
     </div>
+
+    <div class="hero-scroll" aria-hidden="true">SCROLL ▾</div>
   </header>
 
   <nav class="toolbar" id="toolbar">
     <div class="container toolbar-inner">
-      <div class="issue-controls">
-        <button id="prevBtn" class="btn" aria-label="上一期">‹ 上一期</button>
-        <select id="issueSelect" aria-label="选择期号"></select>
-        <button id="nextBtn" class="btn" aria-label="下一期">下一期 ›</button>
+      <div class="brand-inline" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+          <path d="M16 46V18M16 32h15M31 18v28" stroke="#3AE2FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M44 18v12M44 30l-8 16M44 30l8 16" stroke="#8A7CFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="44" cy="30" r="3.6" fill="#FFC857"/>
+        </svg>
+        <span>HY/OBS</span>
       </div>
+
+      <div class="issue-controls">
+        <button id="prevBtn" class="btn btn-ghost" aria-label="上一期">‹</button>
+        <select id="issueSelect" aria-label="选择期号"></select>
+        <button id="nextBtn" class="btn btn-ghost" aria-label="下一期">›</button>
+      </div>
+
       <div class="cat-nav" id="catNav" aria-label="分类导航"></div>
     </div>
   </nav>
 
   <main class="container">
-    <section class="issue-head" id="issueHead"></section>
+    <section class="issue-head" id="issueHead" aria-live="polite"></section>
+
     <div id="content">
-      <p class="loading">正在加载数据…</p>
+      <div class="loading" id="loading">
+        <div class="loading-orb" aria-hidden="true">
+          <img src="assets/img/orb-core.png" alt=""
+               onload="this.classList.add('is-loaded')"
+               onerror="this.classList.add('is-missing')">
+        </div>
+        <p>正在校准信号…</p>
+      </div>
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>
-        内容来自 <a href="https://github.com/521xueweihan/HelloGitHub" target="_blank" rel="noopener">HelloGitHub</a>，
-        采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a> 许可，
-        本站仅作非商业展示，原文未做修改。
-      </p>
-      <p>数据更新于 <span id="updatedAt"></span></p>
+    <div class="container footer-inner">
+      <div class="footer-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+          <path d="M16 46V18M16 32h15M31 18v28" stroke="#3AE2FF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M44 18v12M44 30l-8 16M44 30l8 16" stroke="#8A7CFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="44" cy="30" r="3" fill="#FFC857"/>
+        </svg>
+      </div>
+      <div class="footer-copy">
+        <p>
+          内容来自 <a href="https://github.com/521xueweihan/HelloGitHub" target="_blank" rel="noopener">HelloGitHub</a>，
+          采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a> 许可，
+          本站仅作非商业展示，原文未做修改。
+        </p>
+      </div>
+      <p class="footer-meta mono">数据更新于 <span id="updatedAt"></span> · HY/OBS v2.0</p>
     </div>
   </footer>
 
