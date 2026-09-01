@@ -1,1 +1,31 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>通关营 · 计算机考试学习系统</title><meta name="description" content="理论、题目与操作模拟一体的北师大计算机考试学习系统"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body><aside class="sidebar"><div class="brand"><span class="brand-mark">⌁</span><span>通关营<span>/01</span></span></div><div class="profile"><div class="avatar">新</div><div><strong>新生练习者</strong><small>连续学习 <b id="streak">1</b> 天</small></div></div><nav id="nav"><button class="active" data-view="home"><i>⌂</i>学习首页</button><button data-view="theory"><i>◈</i>理论知识</button><button data-view="quiz"><i>✦</i>题目检测 <b class="nav-pill">15</b></button><button data-view="lab"><i>▦</i>操作模拟</button><button data-view="plan"><i>☷</i>一周计划</button></nav><div class="side-bottom"><div class="side-progress"><span>本周掌握</span><strong id="sidePct">0%</strong><div><i id="sideBar"></i></div></div><button class="settings" id="resetBtn">↺ 重置本地数据</button></div></aside><main><header class="mobile-head"><button id="menuBtn">☰</button><strong>通关营 / 01</strong><span class="mono">DAY <b id="mobileDay">1</b></span></header><div id="app"></div></main><div class="toast" id="toast" role="status"></div><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>通关营 · 北师大计算机考试训练系统</title>
+  <meta name="description" content="理论、真题、模拟题与操作仿真一体的计算机考试训练系统" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#home"><span>⌁</span>通关营 <b>/ 01</b></a>
+    <div class="exam-badge"><small>北师大入学计算机考试</small><strong>100 分 · 操作题 80 分</strong></div>
+    <nav id="nav">
+      <button class="active" data-view="home">⌂ <span>学习首页</span></button>
+      <button data-view="theory">◈ <span>理论精讲</span></button>
+      <button data-view="quiz">✦ <span>题目检测</span><b id="qCount">60+</b></button>
+      <button data-view="lab">▦ <span>操作仿真</span></button>
+      <button data-view="mock">◷ <span>模拟考试</span></button>
+    </nav>
+    <div class="side-progress"><div><span>掌握度</span><b id="sidePct">0%</b></div><i><em id="sideBar"></em></i><small>做对、完成实验后自动记录</small></div>
+    <button class="reset" id="resetBtn">↺ 清空本地训练记录</button>
+  </aside>
+  <main><header class="mobile-head"><button id="menuBtn">☰</button><strong>通关营 / 01</strong><span id="mobilePct">0%</span></header><div id="app"></div></main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
